@@ -1,0 +1,59 @@
+/* adds extra elements without modifying html */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #0088ff, #00886c);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.75);
+
+}
+
+/* `default, pointer, crosshair, move, text, wait, not-allowed, help, zoom-in, zoom-out, grab, grabbing, e-resize, w-resize, n-resize, s-resize, ne-resize, nw-resize, se-resize, sw-resize, all-scroll, none` */
+.calculator-grid > :hover ,
+.calculator-grid > :focus {
+    background-color: rgba(255, 255, 255, 0.9);
+
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    background-color: rgba(0, 0, 0, 0.75);
+    /* span to column 1 to -1 (last) */
+    grid-column:  1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: .75rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+.output .current-operand {
+    color: rgba(255, 255, 255, 1);
+    font-size: 2.5rem;
+}
